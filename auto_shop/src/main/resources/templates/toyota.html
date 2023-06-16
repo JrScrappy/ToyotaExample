@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toyota</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="style" href="style-return-up.css">
+</head>
+
+<div th:replace="fragments/new_header.html :: header"></div>
+
+<body>
+<div class="logo-animation">
+    <img th:src="@{/source/toyota_logo_video.webp}" alt="Logo">
+</div>
+<div class="video-container">
+    <video autoplay loop muted>
+        <source th:src="@{/source/promo.mp4}" type="video/mp4">
+        <source th:src="@{/source/promo.mp4}" type="video/webm">
+    </video>
+</div>
+<div id="catalog" class="cars-container">
+    <div class="car-card" th:each="car : ${cars}" th:object="${car}">
+        <a th:href="@{/{id}(id=*{id})}" class="car-img-container">
+            <img class="car-img" th:src="*{pictureUrl}" alt="Highlander">
+        </a>
+        <div class="car-card-info">
+            <p class="car-name" th:text="*{name}"></p>
+            <p class="car-description">Описание автомобиля</p>
+            <p th:text="|Цена: *{msrp}$|"></p>
+            <p th:text="|Витрата пального: *{mpgStarts}/*{mpgEnds}mpg|"></p>
+            <form th:action="@{/orders/{id}(id=*{id})}" method="post">
+                <button class="buy-button">Придбати</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script th:src="@{/js/script.js}"></script>
+</body>
+
+<div th:replace="fragments/new_footer.html :: footer"></div>
+
+</html>

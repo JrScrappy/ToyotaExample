@@ -1,0 +1,55 @@
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/profileForm.css}"/>
+    <title>Profile</title>
+</head>
+
+<div th:replace="fragments/new_header.html :: header"></div>
+
+<body>
+<div class="centeredContainer">
+    <div class="centeredContent" th:object="${user}">
+        <h1 class="pageTitle">Profile</h1>
+        <div class="rowsContainer">
+            <aside class="pictureContainer">
+                <img class="profilePicture" th:src="@{/source/account-img.png}" alt="avatar image"/>
+                <p class="userName" th:text="|*{name} *{surname}|"></p>
+            </aside>
+            <div class="infoContainer">
+                <div class="infoForm">
+                    <div class="valueContainer">
+                        <label class="label">Full Name</label>
+                        <input name="fullName" type="text" class="input" th:value="*{name}"/>
+                    </div>
+                    <div class="valueContainer">
+                        <label class="label">Email</label>
+                        <input name="email" type="email" class="input" th:value="*{email}"/>
+                    </div>
+                    <div class="valueContainer">
+                        <label class="label">Phone</label>
+                        <input name="phone" class="input" th:value="*{phone}"/>
+                    </div>
+                    <div class="valueContainer">
+                        <label class="label">Date of birth</label>
+                        <input name="dob" type="date" class="input" th:value="*{dateOfBirth}"/>
+                    </div>
+
+                    <div class="buttonsContainer">
+                        <input type="submit" class="actionButton" value="Update"/>
+                        <form method="post">
+                            <button class="actionButton">Exit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<div th:replace="fragments/new_footer.html :: footer"></div>
+
+</html>

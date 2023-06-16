@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<header>
+    <div class="navpanel" th:fragment="header">
+        <a th:href="@{/}" class="logo-container"><img class="logo" th:src="@{/source/toyota_logo.webp}" alt="logo"></a>
+        <div class="vertical-line"></div>
+        <img class="uaflag" th:src="@{/source/ukraine_flag.webp}" alt="ua">
+        <div class="nav">
+            <ul class="nav_links">
+                <li><a th:href="@{/#catalog}">Каталог</a><span class="vertical-line inlist"></span></li>
+                <li><a th:href="@{/orders}">Замовлення</a><span class="vertical-line inlist"></span></li>
+                <li><a th:href="@{/account}"><img class="user-icon" alt="user-icon" th:src="@{/source/image-user.jpg}"></a></li>
+            </ul>
+        </div>
+        <div class="menu-toggle"><img class="menu_icon" th:src="@{/source/menu-button.png}" alt="menu_icon"></div>
+        <div class="dropdown-menu">
+            <ul>
+                <li><a th:href="@{/#catalog}">Каталог</a></li>
+                <li><a th:href="@{/orders}">Замовлення</a></li>
+                <li><a th:href="@{/account}"><img class="user-icon-dropped" alt="user-icon-dropped" th:src="@{/source/image-user.jpg}"></a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+</body>
+</html>

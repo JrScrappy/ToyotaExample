@@ -1,0 +1,62 @@
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/signUpForm.css}"/>
+    <title>Sign up</title>
+</head>
+
+<div th:replace="fragments/new_header.html :: header"></div>
+
+<body>
+<div class="centeredContainer">
+    <div class="centeredContent">
+        <h1 class="pageTitle">Sign up</h1>
+        <div class="infoContainer">
+            <form class="infoForm" method="post" th:object="${user}">
+                <div class="valueContainer">
+                    <label class="label">First name</label>
+                    <input class="input" placeholder="Name" th:field="*{name}" required/>
+                </div>
+                <div class="valueContainer">
+                    <label class="label">Last name</label>
+                    <input class="input" placeholder="Surname" th:field="*{surname}" required/>
+                </div>
+
+                <div class="valueContainer">
+                    <label class="label">Email</label>
+                    <input class="input" placeholder="Email" type="email" th:field="*{email}" required/>
+                </div>
+
+                <div class="valueContainer">
+                    <label class="label">Password</label>
+                    <input class="input" placeholder="Password" th:field="*{password}" minlength="8" type="password"
+                           required/>
+                </div>
+
+                <div class="valueContainer">
+                    <label class="label">Phone</label>
+                    <input class="input" placeholder="Phone" type="tel" pattern="^\s*\+?\d{10,12}\s*$"
+                           th:field="*{phone}" required/>
+                </div>
+
+                <div class="valueContainer">
+                    <label class="label">Date of birth</label>
+                    <input class="input" placeholder="Date" type="date" th:field="*{dateOfBirth}" required/>
+                </div>
+
+                <div class="buttonsContainer">
+                    <input type="submit" class="actionButton" value="Sign up"/>
+                    <p>or <a th:href="@{/login}">Sign in</a></p>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+<div th:replace="fragments/new_footer.html :: footer"></div>
+
+</html>

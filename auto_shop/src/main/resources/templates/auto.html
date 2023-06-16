@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toyota</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<header>
+    <div class="navpanel">
+        <img class="logo" src="./source/toyota_logo.webp" alt="logo">
+        <div class="vertical-line"></div>
+        <img class="uaflag" src="./source/ukraine_flag.webp" alt="ua">
+        <div class="nav">
+            <ul class="nav_links">
+                <li><a href="#">Каталог</a><span class="vertical-line inlist"></span></li>
+                <li><a href="#">Замовлення</a><span class="vertical-line inlist"></span></li>
+                <li><a href="#"><img class="user-icon" alt="user-icon" src="./source/image-user.jpg"></a></li>
+            </ul>
+        </div>
+        <div class="menu-toggle"><img class="menu_icon" src="./source/menu-button.png" alt="menu_icon"></div>
+        <div class="dropdown-menu">
+            <ul>
+                <li><a href="#">Каталог</a></li>
+                <li><a href="#">Замовлення</a></li>
+                <li><img class="user-icon-dropped" alt="user-icon-dropped" src="./source/image-user.jpg">
+        </div>
+        </li>
+        </ul>
+    </div>
+    </div>
+</header>
+<body>
+<div class="orders-container">
+    <div class="order-main">
+        <div class="car-card">
+            <div class="car-img-container">
+                <img class="car-img" src="./source/corollacrosshybrid.avif" alt="Corolla-Cross-Hybrid">
+            </div>
+            <div class="car-card-info">
+                <p class="car-name">Corolla Cross Hybrid</p>
+                <p class="car-description">Описание автомобиля</p>
+                <p>Цена: 10,000$</p>
+                <p>Витрата пального: 99/99mpg</p>
+                <a class="buy-button" href="#">Придбати</a>
+            </div>
+        </div>
+        <div class="car-card" th:object="${car}">
+            <div class="car-img-container">
+                <img class="car-img" th:src="*{pictureUrl}">
+            </div>
+            <div class="car-card-info">
+                <p class="car-name" th:text="*{name}"></p>
+                <p class="car-description">Описание автомобиля</p>
+                <p th:text="|Цена: *{msrp}$|"></p>
+                <p th:text="|Витрата пального: *{mpgStarts}/*{mpgEnds}mpg|"></p>
+                <form th:action="@{/orders/{id}(id=*{id})}" method="post">
+                    <button class="buy-button">Придбати</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<footer class="footer-main">
+    <div class="footer-links">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Models</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+    <div class="footer-social">
+        <ul>
+            <li><a href="#"><img src="./source/Facebook_Logo_(2019).png" alt="Facebook"></a></li>
+            <li><a href="#"><img src="./source/telegram-logo-transparent-free-png.webp" alt="Telegram"></a></li>
+            <li><a href="#"><img src="./source/inst.png" alt="Instagram"></a></li>
+        </ul>
+    </div>
+    <div class="footer-disclaimer">
+        <p>&copy; 2023 Toyota. All rights reserved.</p>
+        <p>Designed by YourCompany</p>
+    </div>
+</footer>
+</html>

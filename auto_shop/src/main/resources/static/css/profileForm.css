@@ -1,0 +1,98 @@
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+.centeredContainer {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+}
+
+.centeredContent {
+  width: 60%;
+}
+
+.pageTitle {
+  text-align: center;
+  color: red;
+}
+
+.rowsContainer {
+  display: flex;
+}
+
+.pictureContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid red;
+  margin-right: 2rem;
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+  background-color: white;
+}
+
+.profilePicture {
+  max-width: 300px;
+}
+
+.userName {
+  font-weight: bold;
+}
+
+.infoContainer {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid red;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  background-color: white;
+}
+
+.infoForm {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.valueContainer {
+  display: flex;
+  margin: .5rem 0;
+}
+
+.label {
+  margin: 0;
+  font-weight: bold;
+  width: 30%;
+}
+
+.input {
+  width: 70%;
+}
+
+.buttonsContainer {
+  display: flex;
+  margin-top: 1rem;
+  align-self: flex-end;
+}
+
+.actionButton {
+  width: 100px;
+  height: 30px;
+  margin: .5rem;
+  border-radius: 0.5em;
+}
+
+.actionButton:last-of-type {
+  margin-right: 0;
+}
+
+.actionButton:hover {
+  transition: 0.5s;
+  background-color: red;
+  color: aliceblue;
+}
