@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/old_style.css}">
+    <title>Catalog</title>
+</head>
+<body>
+<div th:insert="fragments/header.html :: header"></div>
+
+<div class="content catalog">
+    <div class="car" th:each="car : ${cars}" th:object="${car}">
+        <a th:href="@{/catalog/{id}(id=*{id})}">
+            <img th:src="*{pictureUrl}">
+        </a>
+        <div class="title" th:text="|*{name} (*{year})|"></div>
+        <div class="meta">
+            <div>
+                <div class="header" th:text="|$*{msrp}|"></div>
+                <div class="subheader"> Starting MSRP</div>
+            </div>
+            <div>
+                <div class="header" th:text="|*{mpgStarts}/*{mpgEnds}|"></div>
+                <div class="subheader"> Est. MPG</div>
+            </div>
+        </div>
+        <a class="explore" th:href="@{/catalog/{id}(id=*{id})}">Explore</a>
+    </div>
+</div>
+</body>
+</html>

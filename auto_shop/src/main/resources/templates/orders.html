@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toyota</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<div th:replace="fragments/new_header.html :: header"></div>
+
+<body>
+<div class="orders-container">
+    <div class="order-main">
+        <div class="car-card" th:each="order : ${orders}" th:object="${order}">
+            <a th:href="@{/{id}(id=*{car.id})}" class="car-img-container">
+                <img class="car-img" th:src="*{car.pictureUrl}" alt="Highlander">
+            </a>
+            <div class="car-card-info">
+                <p class="car-name" th:text="*{car.name}"></p>
+                <p class="car-description">Описание автомобиля</p>
+                <p th:text="|Цена: *{car.msrp}$|"></p>
+                <p th:text="|Витрата пального: *{car.mpgStarts}/*{car.mpgEnds}mpg|"></p>
+                <p th:text="|Статус: *{getStatus()}|"></p>
+                <div th:switch="${user.getRole().name()}">
+                    <form th:case="'MANAGER'" th:action="@{/orders/accept/manager/{id}(id=*{id})}" method="post">
+                        <button class="buy-button">Прийняти</button>
+                    </form>
+                    <form th:if="*{canceled == false}" th:action="@{/orders/cancel/{id}(id=*{id})}" method="post">
+                        <button class="buy-button">Відмінити</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<div th:replace="fragments/new_footer.html :: footer"></div>
+
+</html>

@@ -1,0 +1,95 @@
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+a {
+  color: rgb(65, 65, 65);
+}
+
+.centeredContainer {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+}
+
+.centeredContent {
+  width: 40%;
+}
+
+.pageTitle {
+  text-align: center;
+  color: red;
+}
+
+.rowsContainer {
+  display: flex;
+}
+
+.pictureContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid red;
+  margin-right: 2rem;
+}
+
+.profilePicture {
+  max-width: 300px;
+}
+
+.userName {
+  font-weight: bold;
+}
+
+.infoContainer {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid red;
+  border-radius: 1em;
+  background-color: white;
+}
+
+.infoForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.valueContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0;
+}
+
+.label {
+  margin: 0.5rem 0;
+  font-weight: bold;
+}
+
+.input {
+  height: 30px;
+  border-radius: 1em;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.actionButton {
+  width: 100px;
+  height: 30px;
+  border-radius: 0.5em;
+}
+
+.actionButton:hover {
+  transition: 0.5s;
+  background-color: red;
+  color: aliceblue;
+}

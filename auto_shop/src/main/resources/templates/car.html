@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" th:href="@{/css/old_style.css}">
+  <title>Car</title>
+</head>
+<body>
+<div th:insert="fragments/header.html :: header"></div>
+
+<div class="content detail" th:object="${car}">
+  <div class="car">
+      <img th:src="*{pictureUrl}">
+    <div class="meta">
+      <div>
+        <div class="header" th:text="|$*{msrp}|"></div>
+        <div class="subheader"> Starting MSRP</div>
+      </div>
+      <div>
+        <div class="header" th:text="|*{mpgStarts}/*{mpgEnds}|"></div>
+        <div class="subheader"> Est. MPG</div>
+      </div>
+    </div>
+    <form th:action="@{/orders/{id}(id=*{id})}" method="post">
+      <button class="btn">Make order</button>
+    </form>
+  </div>
+  <div class="car-info">
+    <div class="title" th:text="|*{name} (*{year})|"></div>
+    <div class="header" th:text="|Horse power: *{hp}|"></div>
+    <div class="header" th:text="*{description}"></div>
+  </div>
+</div>
+</body>
+</html>
